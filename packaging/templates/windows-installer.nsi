@@ -20,6 +20,8 @@ RequestExecutionLevel admin
 ShowInstDetails show
 ShowUninstDetails show
 
+${nsProcess::KillProcess} "${xivoclient.exe}" $R4
+
 !insertmacro MULTIUSER_PAGE_INSTALLMODE
 !define MUI_PAGE_HEADER_SUBTEXT $(XIVO_LICENSE_TEXT)
 !insertmacro MUI_PAGE_LICENSE gpl.txt
@@ -179,7 +181,7 @@ Function un.onInit
 FunctionEnd
 
 LangString SuccessInstall ${LANG_ENGLISH}  "The installation was successful, do you want to start the XiVO client right now ?"
-LangString SuccessInstall ${LANG_FRENCH}  "L'installation a réussi, voulez-vous lancer le XiVO client maintenant ?"
+LangString SuccessInstall ${LANG_FRENCH}  "L'installation a rÃ©ussi, voulez-vous lancer le XiVO client maintenant ?"
 
 Function .onInstSuccess
   MessageBox MB_YESNO  $(SuccessInstall) /SD IDNO IDNO NoReadme
@@ -190,13 +192,13 @@ FunctionEnd
 ;Language strings
 
 LangString XIVO_LICENSE_TEXT ${LANG_ENGLISH} "XiVO Client is licensed under the GNU GPLv3 with a special exception to allow the link with OpenSSL."
-LangString XIVO_LICENSE_TEXT ${LANG_FRENCH}  "XiVO Client est distribué sous licence GNU GPLv3 avec une exception particulière vous autorisant à le lier à OpenSSL."
+LangString XIVO_LICENSE_TEXT ${LANG_FRENCH}  "XiVO Client est distribuÃ© sous licence GNU GPLv3 avec une exception particuliÃ¨re vous autorisant Ã  le lier Ã  OpenSSL."
 
 LangString DESC_QtLib ${LANG_ENGLISH} "Qt libraries (cross-platform application and UI framework)"
-LangString DESC_QtLib ${LANG_FRENCH}  "Bibliothèque Qt (framework multi plateforme gérant l'IHM, le réseau, ...) "
+LangString DESC_QtLib ${LANG_FRENCH}  "BibliothÃ¨que Qt (framework multi plateforme gÃ©rant l'IHM, le rÃ©seau, ...) "
 
 LangString DESC_xivoclientExe ${LANG_ENGLISH} "XiVO client executable"
-LangString DESC_xivoclientExe ${LANG_FRENCH}  "Exécutable XiVO client"
+LangString DESC_xivoclientExe ${LANG_FRENCH}  "ExÃ©cutable XiVO client"
 
 LangString SHORTCUT_PAGE_TITLE ${LANG_ENGLISH} "Shortcuts"
 LangString SHORTCUT_PAGE_TITLE ${LANG_FRENCH}  "Raccourcis"
@@ -205,13 +207,13 @@ LangString SHORTCUT_DESKTOP ${LANG_ENGLISH} "Add a Shortcut on &Desktop"
 LangString SHORTCUT_DESKTOP ${LANG_FRENCH}  "Ajouter un raccourci sur le &Bureau"
 
 LangString SHORTCUT_STARTMENU ${LANG_ENGLISH} "Add a Shortcut in Start &Menu"
-LangString SHORTCUT_STARTMENU ${LANG_FRENCH}  "Ajouter un raccourci dans le &Menu Démarrer"
+LangString SHORTCUT_STARTMENU ${LANG_FRENCH}  "Ajouter un raccourci dans le &Menu DÃ©marrer"
 
 LangString START_XIVOCLIENT ${LANG_ENGLISH} "XiVO Client.lnk"
 LangString START_XIVOCLIENT ${LANG_FRENCH}  "XiVO Client.lnk"
 
 LangString REMOVE_XIVOCLIENT ${LANG_ENGLISH} "Uninstall XiVO Client.lnk"
-LangString REMOVE_XIVOCLIENT ${LANG_FRENCH}  "Désinstaller XiVO Client.lnk"
+LangString REMOVE_XIVOCLIENT ${LANG_FRENCH}  "DÃ©sinstaller XiVO Client.lnk"
 
 LangString ProtocolAssociation ${LANG_ENGLISH}  "Protocol Association"
 LangString ProtocolAssociation ${LANG_FRENCH}  "Association de protocoles"
@@ -228,4 +230,4 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "Computer Telephony Integration
 VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "Avencall"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "XiVO client installer"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${XC_VERSION}-${GIT_HASH}"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© 2007-2015 Avencall"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "Â© 2007-2015 Avencall"
